@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
+import 'package:instagram_app/main.dart';
+
 class Swithch_account_Screen extends StatelessWidget {
   const Swithch_account_Screen({Key? key}) : super(key: key);
 
@@ -23,7 +25,7 @@ class Swithch_account_Screen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 210,
+                  top: 215,
                   child: ClipRRect(
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
@@ -62,13 +64,17 @@ class Swithch_account_Screen extends StatelessWidget {
                                   color: Colors.white),
                             ),
                             SizedBox(
-                              height: 20,
+                              height: 20.0,
                             ),
                             ElevatedButton(
                               onPressed: () {},
-                              child: Text('Confirm'),
+                              child: Text(
+                                'Confirm',
+                                style: TextStyle(fontSize: 16),
+                              ),
                               style: ElevatedButton.styleFrom(
                                 primary: Color(0xffF35383),
+                                minimumSize: Size(129, 46),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
