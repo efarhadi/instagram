@@ -58,37 +58,30 @@ class Swithch_account_Screen extends StatelessWidget {
                             ),
                             Text(
                               'Esmaeil Farhadi',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                              style: Theme.of(context).textTheme.headline4,
                             ),
                             SizedBox(
                               height: 20.0,
                             ),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Confirm',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: Color(0xffF35383),
-                                minimumSize: Size(129, 46),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                              ),
+                            SizedBox(
+                              width: 129,
+                              height: 46,
+                              child: ElevatedButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Confirm',
+                                    style: TextStyle(fontSize: 16),
+                                  ),
+                                  style: Theme.of(context)
+                                      .elevatedButtonTheme
+                                      .style),
                             ),
                             SizedBox(
                               height: 32,
                             ),
                             Text(
                               'switch account',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                              style: Theme.of(context).textTheme.headline4,
                             ),
                           ],
                         ),
@@ -101,10 +94,26 @@ class Swithch_account_Screen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(top: 132, bottom: 63),
-            child: Text(
-              'dont have an account?',
-              style: TextStyle(
-                  color: Colors.white.withOpacity(0.50), fontSize: 16),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Don\'t have an account?',
+                  style: TextStyle(
+                      fontFamily: 'GB',
+                      color: Colors.white.withOpacity(0.50),
+                      fontSize: 16),
+                ),
+                Text(
+                  ' Sing up',
+                  style: TextStyle(
+                    fontFamily: 'GB',
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
