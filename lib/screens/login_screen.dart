@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
 
-class login_screen extends StatelessWidget {
+class login_screen extends StatefulWidget {
   const login_screen({Key? key}) : super(key: key);
+
+  @override
+  State<login_screen> createState() => _login_screenState();
+}
+
+class _login_screenState extends State<login_screen> {
+  FocusNode focusOnPassword = new FocusNode();
+  FocusNode focusOnEmail = new FocusNode();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    focusOnEmail.addListener(() {
+      setState(() {});
+    });
+    focusOnPassword.addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +51,115 @@ class login_screen extends StatelessWidget {
           child: Container(),
         ),
         Expanded(
-            child: Container(
-          decoration: BoxDecoration(
+          child: Container(
+            decoration: BoxDecoration(
               color: Color(0xff1C1F2E),
               borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15), topRight: Radius.circular(15))),
-        ))
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
+              ),
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Sing in to ',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    Image(image: AssetImage('images/mood.png'))
+                  ],
+                ),
+                SizedBox(
+                  height: 34,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 44),
+                  child: TextField(
+                    focusNode: focusOnEmail,
+                    decoration: InputDecoration(
+                      labelStyle: TextStyle(
+                          fontFamily: 'GM',
+                          fontSize: 20,
+                          color: focusOnEmail.hasFocus
+                              ? Color(0xffF35383)
+                              : Colors.white),
+                      labelText: 'Email',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                        borderSide: BorderSide(
+                            color: Color(
+                              0xffF35383,
+                            ),
+                            width: 3),
+                      ),
+                      contentPadding: EdgeInsets.all(15),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                        borderSide: BorderSide(
+                            color: Color(
+                              0xffC5C5C5,
+                            ),
+                            width: 3),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 32,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 44),
+                  child: TextField(
+                    focusNode: focusOnPassword,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: TextStyle(
+                          fontFamily: 'GM',
+                          fontSize: 20,
+                          color: focusOnPassword.hasFocus
+                              ? Color(0xffF35383)
+                              : Colors.white),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                        borderSide: BorderSide(
+                            color: Color(
+                              0xffF35383,
+                            ),
+                            width: 3),
+                      ),
+                      contentPadding: EdgeInsets.all(15),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                        borderSide: BorderSide(
+                            color: Color(
+                              0xffC5C5C5,
+                            ),
+                            width: 3),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        )
       ],
     );
   }
@@ -60,5 +183,12 @@ class login_screen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    focusOnEmail.dispose();
+    focusOnPassword.dispose();
+    super.dispose();
   }
 }
