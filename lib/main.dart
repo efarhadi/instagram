@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_app/screens/home_screen.dart';
 import 'package:instagram_app/screens/login_screen.dart';
 import 'package:instagram_app/screens/switch_account_screen.dart';
 
@@ -28,7 +29,7 @@ class Application extends StatelessWidget {
                 textStyle: TextStyle(fontFamily: 'GB', fontSize: 16)),
           )),
       debugShowCheckedModeBanner: false,
-      home: login_screen(),
+      home: HomeScreen(),
     );
   }
 }
