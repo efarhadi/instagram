@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:instagram_app/screens/share_bottmSheet.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -28,12 +29,33 @@ class HomeScreen extends StatelessWidget {
       ),
       backgroundColor: Color(0xff1C1F2E),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [_getFullStories(), _getPostList()],
+          child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: _getFullStories(),
           ),
-        ),
-      ),
+          _getPostList()
+        ],
+      )),
+    );
+  }
+
+  Widget _getPostList() {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate((context, index) {
+        return Column(
+          children: [
+            SizedBox(
+              height: 34,
+            ),
+            _getPostHeader(),
+            SizedBox(
+              height: 23,
+            ),
+            _getPost(context),
+          ],
+        );
+      }, childCount: 10),
     );
   }
 
@@ -50,28 +72,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _getPostList() {
-    return ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: 5,
-        itemBuilder: ((context, index) {
-          return Column(
-            children: [
-              SizedBox(
-                height: 34,
-              ),
-              _getPostHeader(),
-              SizedBox(
-                height: 23,
-              ),
-              _getPost(),
-            ],
-          );
-        }));
-  }
-
-  Widget _getPost() {
+  Widget _getPost(context) {
     return Container(
       height: 440,
       width: 394,
@@ -143,7 +144,34 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Image.asset('images/icon_share.png'),
+                        InkWell(
+                            onTap: () {
+                              showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                barrierColor: Colors.transparent,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(
+                                        bottom: MediaQuery.of(context)
+                                            .viewInsets
+                                            .bottom),
+                                    child: DraggableScrollableSheet(
+                                      initialChildSize: 0.4,
+                                      maxChildSize: 0.65,
+                                      minChildSize: 0.3,
+                                      expand: false,
+                                      builder: ((context, scrollController) {
+                                        return ShareBottomSheet(
+                                            controller: scrollController);
+                                      }),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                            child: Image.asset('images/icon_share.png')),
                         Image.asset('images/icon_save.png'),
                       ],
                     ),
@@ -171,7 +199,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'esmaeilfarhadi',
+                  'arashfarhadi',
                   style: TextStyle(
                       fontFamily: 'GB', color: Colors.white, fontSize: 12),
                 ),
