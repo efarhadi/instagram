@@ -31,30 +31,33 @@ class _SearchScreenState extends State<SearchScreen> {
           SliverToBoxAdapter(
             child: _getCategoryList(),
           ),
-          SliverGrid(
-            delegate: SliverChildBuilderDelegate(
-                (context, index) => ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        child: Image.asset(
-                          'images/item$index.png',
-                          fit: BoxFit.cover,
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            sliver: SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                  (context, index) => ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Container(
+                          child: Image.asset(
+                            'images/item$index.png',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                    ),
-                childCount: 10),
-            gridDelegate: SliverQuiltedGridDelegate(
-              crossAxisCount: 3,
-              mainAxisSpacing: 5,
-              crossAxisSpacing: 5,
-              repeatPattern: QuiltedGridRepeatPattern.inverted,
-              pattern: [
-                QuiltedGridTile(2, 1),
-                QuiltedGridTile(2, 2),
-                QuiltedGridTile(1, 1),
-                QuiltedGridTile(1, 1),
-                QuiltedGridTile(1, 1),
-              ],
+                  childCount: 10),
+              gridDelegate: SliverQuiltedGridDelegate(
+                crossAxisCount: 3,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+                repeatPattern: QuiltedGridRepeatPattern.inverted,
+                pattern: [
+                  QuiltedGridTile(2, 1),
+                  QuiltedGridTile(2, 2),
+                  QuiltedGridTile(1, 1),
+                  QuiltedGridTile(1, 1),
+                  QuiltedGridTile(1, 1),
+                ],
+              ),
             ),
           ),
         ],
