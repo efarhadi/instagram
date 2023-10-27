@@ -61,43 +61,7 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
         ],
-      )
-
-          // Column(
-          //     children: [
-          //       _getSearchBox(),
-          //       _getCategoryList(),
-          //       Expanded(
-          //         child: GridView.custom(
-          // gridDelegate: SliverQuiltedGridDelegate(
-          //   crossAxisCount: 3,
-          //   mainAxisSpacing: 5,
-          //   crossAxisSpacing: 5,
-          //   repeatPattern: QuiltedGridRepeatPattern.inverted,
-          //   pattern: [
-          //     QuiltedGridTile(2, 1),
-          //     QuiltedGridTile(2, 2),
-          //     QuiltedGridTile(1, 1),
-          //     QuiltedGridTile(1, 1),
-          //     QuiltedGridTile(1, 1),
-          //   ],
-          // ),
-          // childrenDelegate: SliverChildBuilderDelegate(
-          //     (context, index) => ClipRRect(
-          //           borderRadius: BorderRadius.circular(10),
-          //           child: Container(
-          //             child: Image.asset(
-          //               'images/item$index.png',
-          //               fit: BoxFit.cover,
-          //             ),
-          //           ),
-          //         ),
-          //     childCount: 10),
-          //         ),
-          //       )
-          //     ],
-
-          ),
+      )),
     );
   }
 
