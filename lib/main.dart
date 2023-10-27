@@ -3,6 +3,7 @@ import 'package:instagram_app/screens/activity_screen.dart';
 import 'package:instagram_app/screens/add_post_screen.dart';
 import 'package:instagram_app/screens/home_screen.dart';
 import 'package:instagram_app/screens/login_screen.dart';
+import 'package:instagram_app/screens/main_screen.dart';
 import 'package:instagram_app/screens/search_screen.dart';
 import 'package:instagram_app/screens/switch_account_screen.dart';
 import 'package:instagram_app/screens/user_profile_screen.dart';
@@ -33,7 +34,7 @@ class Application extends StatelessWidget {
                 textStyle: TextStyle(fontFamily: 'GB', fontSize: 16)),
           )),
       debugShowCheckedModeBanner: false,
-      home: UserProfile(),
+      home: MainScreen(),
     );
   }
 }
