@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-import 'package:instagram_app/main.dart';
-
 class Swithch_account_Screen extends StatelessWidget {
   const Swithch_account_Screen({Key? key}) : super(key: key);
 
