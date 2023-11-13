@@ -52,10 +52,10 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 23,
             ),
-            _getPost(context),
+            _getPost(context, index),
           ],
         );
-      }, childCount: 10),
+      }, childCount: 9),
     );
   }
 
@@ -72,7 +72,11 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _getPost(context) {
+  Widget _getPost(context, int index) {
+    //This part is intended solely for displaying higher-quality images on the home screen, and this 'if' statement can be omitted.
+    if (index == 0) {
+      index = 1;
+    }
     return Container(
       height: 440,
       width: 394,
@@ -83,7 +87,7 @@ class HomeScreen extends StatelessWidget {
             top: 0,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
-              child: Image.asset('images/post_cover.png'),
+              child: Image.asset('images/item$index.png'),
             ),
           ),
           Positioned(
